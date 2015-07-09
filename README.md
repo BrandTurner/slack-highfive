@@ -13,9 +13,9 @@ You can deploy this elsewhere, however it's free and fast to just deploy this to
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 Configuration
------
+-------------
 
-1. Export a json hash of slack slash command tokens to slack incoming webhook urls to `TOKENS_URLS`, e.g.,
+1. Export a json hash of slack slash command tokens to slack incoming webhook urls to `TOKENS_URLS`, e.g.:
 ```bash
 export TOKENS_URLS='{"gIkuvaNzQIHg97ATvDxqgjtO":"https://hooks.slack.com/services/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"}'
 ```
@@ -23,7 +23,6 @@ export TOKENS_URLS='{"gIkuvaNzQIHg97ATvDxqgjtO":"https://hooks.slack.com/service
 ```bash
 export HIGHFIVE_ACCOUNT='{your_account}'
 ```
-3. `npm start`
 
 Creating Slash Command
 ----------------------
