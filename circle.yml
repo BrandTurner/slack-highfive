@@ -1,0 +1,9 @@
+deployment:
+  production:
+    branch: master
+    heroku:
+      appname: lanetix-slack-highfive
+
+machine:
+  node:
+    version: iojs-2
