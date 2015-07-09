@@ -6,13 +6,13 @@ slack-highfive
 
 Slack Slash Command for Highfive Video Conferences
 
-Installation
-------------
+Deploy to Heroku
+----------------
+You can deploy this elsewhere, however it's free and fast to just deploy this to heroku using this handy button:
 
-1. clone this repo
-2. `npm install`
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-Usage
+Configuration
 -----
 
 1. Export a json hash of slack slash command tokens to slack incoming webhook urls to `TOKENS_URLS`, e.g.,
