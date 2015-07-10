@@ -8,7 +8,7 @@ Slack Slash Command for Highfive Video Conferences
 
 Deploy to Heroku
 ----------------
-You can deploy this elsewhere, however it's free and fast to just deploy this to heroku using this handy button:
+You can deploy this elsewhere, however it's free and fast to just deploy this to Heroku using this handy button AS-IS and you are _almost_ ready to go!
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
@@ -19,7 +19,8 @@ Configuration
 ```bash
 export TOKENS_URLS='{"gIkuvaNzQIHg97ATvDxqgjtO":"https://hooks.slack.com/services/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"}'
 ```
-2. Export your highfive account name (where `ship` is the account in the url https://ship.highfive.com)
+
+2. Export your Highfive account name (where `ship` is the account in the url https://ship.highfive.com)
 ```bash
 export HIGHFIVE_ACCOUNT='{your_account}'
 ```
@@ -39,3 +40,5 @@ _Source: https://success.highfive.com/hc/en-us/articles/205245365-Creating-a-nif
   - auto-complete text: Initiate a Highfive call
   - usage hint: [call name]
 5. Select Save your integration
+
+Credit to @apechimp who's simple Edgar Facts repo provided the structure of this repo: https://github.com/apechimp/slack-edgar-facts
