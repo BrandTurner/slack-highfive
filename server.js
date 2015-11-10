@@ -22,7 +22,7 @@ var _xtend = require('xtend');
 
 var _xtend2 = _interopRequireDefault(_xtend);
 
-var tokensToUrl = JSON.parse('{"dx0uLiRnbQSjR7YcFtopRasC":"https://hooks.slack.com/services/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"}');
+var tokensToUrl = 'reddit';//JSON.parse('{"dx0uLiRnbQSjR7YcFtopRasC":"https://hooks.slack.com/services/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"}');
 
 var handleError = function handleError(res) {
   return function (err) {
