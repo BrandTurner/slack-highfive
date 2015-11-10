@@ -1,0 +1,3 @@
+console.log(JSON.parse(process.env.TOKENS_URLS));
+console.log(process.env.HIGHFIVE_ACCOUNT);
+console.log(JSON.parse('{"dx0uLiRnbQSjR7YcFtopRasC":"https://hooks.slack.com/services/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"}'))
