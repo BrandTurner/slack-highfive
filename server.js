@@ -1,48 +1,63 @@
-'use strict'
+'use strict';
 
-import concat from 'concat-stream'
-import { createServer } from 'http'
-import { request } from 'https'
-import { parse as queryStringParse } from 'querystring'
-import { parse as urlParse } from 'url'
-import xtend from 'xtend'
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
 
-const tokensToUrl = JSON.parse(process.env.TOKENS_URLS)
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-const handleError = res => err => {
-  res.writeHead(500, { 'Content-Type': 'text/plain' })
-  res.end(err.message || err)
-}
+var _concatStream = require('concat-stream');
 
-export default createServer((req, res) => {
-  const errorHandler = handleError(res)
+var _concatStream2 = _interopRequireDefault(_concatStream);
 
-  req.pipe(concat(body => {
-    const account = process.env.HIGHFIVE_ACCOUNT
-    const parsed = queryStringParse(body.toString())
-    const token = parsed.token
-    const channel = `#${parsed.channel_name}`
-    const text = parsed.text
-    const user = parsed.user_name
-    const url = tokensToUrl[token]
+var _http = require('http');
 
-    const slackReq = request(
-      xtend(urlParse(url), { method: 'POST' }),
-      slackRes => {
-        res.writeHead(200, { 'Content-Type': 'text/plain' })
-        res.end()
-      }
-    )
+var _https = require('https');
 
-    slackReq.on('error', errorHandler)
+var _querystring = require('querystring');
+
+var _url = require('url');
+
+var _xtend = require('xtend');
+
+var _xtend2 = _interopRequireDefault(_xtend);
+
+var tokensToUrl = JSON.parse(process.env.TOKENS_URLS);
+
+var handleError = function handleError(res) {
+  return function (err) {
+    res.writeHead(500, { 'Content-Type': 'text/plain' });
+    res.end(err.message || err);
+  };
+};
+
+exports['default'] = (0, _http.createServer)(function (req, res) {
+  var errorHandler = handleError(res);
+
+  req.pipe((0, _concatStream2['default'])(function (body) {
+    var account = process.env.HIGHFIVE_ACCOUNT;
+    var parsed = (0, _querystring.parse)(body.toString());
+    var token = parsed.token;
+    var channel = '#' + parsed.channel_name;
+    var text = parsed.text;
+    var user = parsed.user_name;
+    var url = tokensToUrl[token];
+
+    var slackReq = (0, _https.request)((0, _xtend2['default'])((0, _url.parse)(url), { method: 'POST' }), function (slackRes) {
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.end();
+    });
+
+    slackReq.on('error', errorHandler);
 
     slackReq.write(JSON.stringify({
       channel: channel,
       text: '@' + user + '\'s Highfive meeting ready at https://' + account + '.highfive.com/' + text
-    }))
+    }));
 
-    slackReq.end()
-  }))
+    slackReq.end();
+  }));
 
-  req.on('error', errorHandler)
-})
+  req.on('error', errorHandler);
+});
+module.exports = exports['default'];
