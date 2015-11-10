@@ -1,0 +1,7 @@
+{
+  "name": "Slack Integration for HighFive",
+  "description": "An app to allow sending Highfive invites in slack",
+  "repository": "https://github.com/BrandTurner/slack-highfive",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["integration", "highfive", "slack"]
+}
