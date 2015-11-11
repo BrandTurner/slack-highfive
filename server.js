@@ -22,7 +22,7 @@ var _xtend = require('xtend');
 
 var _xtend2 = _interopRequireDefault(_xtend);
 
-var tokensToUrl = 'reddit';//JSON.parse('{"dx0uLiRnbQSjR7YcFtopRasC":"https://hooks.slack.com/services/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"}');
+var tokensToUrl = JSON.parse('{"dx0uLiRnbQSjR7YcFtopRasC":"https://hooks.slack.com/services/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"}');
 
 var handleError = function handleError(res) {
   return function (err) {
@@ -37,6 +37,7 @@ exports['default'] = (0, _http.createServer)(function (req, res) {
   req.pipe((0, _concatStream2['default'])(function (body) {
     var account = 'eventfarm';
     var parsed = (0, _querystring.parse)(body.toString());
+
     var token = parsed.token;
     var channel = '#' + parsed.channel_name;
     var text = parsed.text;
